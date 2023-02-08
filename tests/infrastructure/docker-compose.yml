@@ -5,9 +5,10 @@ services:
     image: mariadb
     restart: always
     environment:
-      MARIADB_ROOT_PASSWORD: changemeroot
+      MARIADB_ROOT_PASSWORD: famos
       MARIADB_DATABASE: radius
     volumes:
+      - pg.conf:/etc/postgres/14/pg.conf
       - ${PWD}/mariadb:/var/lib/mysql:rw
       - ${PWD}/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d:rw
 
